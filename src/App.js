@@ -8,7 +8,6 @@ import { collection, getDocs } from "firebase/firestore";
 //Pages
 import Home from "./pages/Home";
 import NewYouth from "./pages/NewYouth";
-import UpdateYouth from "./pages/UpdateYouth";
 import DetailYouth from "./components/DetailYouth";
 
 function App() {
@@ -28,11 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home youth={youth} />} />
         <Route path="/newyouth" element={<NewYouth />} />
-        <Route
-          path="/update/:id"
-          element={<UpdateYouth youth={youth} setYouth={setYouth} />}
-        />
-        <Route path="/detail/:id" element={<DetailYouth />} />
+        <Route path="/update/:id" element={<NewYouth />} />
       </Routes>
     </>
   );

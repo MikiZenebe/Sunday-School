@@ -20,6 +20,7 @@ import {
   doc,
   getDoc,
   serverTimestamp,
+  updateDoc,
 } from "firebase/firestore";
 
 //Component & Pages
@@ -103,10 +104,27 @@ function NewYouth() {
     e.preventDefault();
 
     setIsSubmit(true);
-    await addDoc(collection(db, "youths"), {
-      ...youth,
-      timestamp: serverTimestamp(),
-    });
+
+    //If ID not found add a new data else update existing data
+    if (!id) {
+      try {
+        await addDoc(collection(db, "youths"), {
+          ...youth,
+          timestamp: serverTimestamp(),
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      try {
+        await updateDoc(doc(db, "youths", id), {
+          ...youth,
+          timestamp: serverTimestamp(),
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
     navigate("/");
   };
 
@@ -180,7 +198,7 @@ function NewYouth() {
                 className="mb-4 grid h-20 place-items-center"
               >
                 <Typography variant="h3" color="white">
-                  የወጣቶች አዲስ አባል
+                  {id ? `መረጃውን አስተካክል ` : `የወጣቶች አዲስ አባል`}
                 </Typography>
               </CardHeader>
               <CardBody className="grid grid-cols-2 gap-4">
@@ -190,7 +208,6 @@ function NewYouth() {
                   label="የአባሉ ፎቶ"
                   size="md"
                   onChange={(e) => setImage(e.target.files[0])}
-                  required
                 />
                 <Input
                   name="formNo"
