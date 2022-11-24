@@ -13,6 +13,8 @@ import { collection, getDocs } from "firebase/firestore";
 import Home from "./pages/Home";
 import NewYouth from "./pages/NewYouth";
 import DetailYouth from "./components/DetailYouth";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 
 function App() {
   const [youth, setYouth] = useState([]);
@@ -30,6 +32,9 @@ function App() {
     <>
       <ToastContainer />
       <Routes>
+        <Route exact path="/register" element={<SignUp />} />
+        <Route exact path="/login" element={<Login />} />
+
         <Route path="/" element={<Home youth={youth} setYouth={setYouth} />} />
         <Route path="/newyouth" element={<NewYouth />} />
         <Route path="/update/:id" element={<NewYouth />} />
