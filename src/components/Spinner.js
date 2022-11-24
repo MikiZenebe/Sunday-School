@@ -1,5 +1,6 @@
 import React from "react";
-export const loader = () => {
+
+function Spinner() {
   return (
     <>
       <div className="bg-gray-100">
@@ -29,4 +30,6 @@ export const loader = () => {
       </div>
     </>
   );
-};
+}
+
+export default Spinner;

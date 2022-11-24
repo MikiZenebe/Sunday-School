@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../firebaseConfig";
+import { toast } from "react-toastify";
 
 function Home({ youth }) {
   const [search, setSearch] = useState("");
@@ -14,7 +15,16 @@ function Home({ youth }) {
   const deleteYouth = async (id) => {
     const youthDoc = doc(db, "youths", id);
     await deleteDoc(youthDoc);
+
+    if (deleteYouth) {
+      //Notification
+      toast.success("መረጃው ተሰርዟል ❌", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 1000,
+      });
+    }
   };
+
   return (
     <>
       <Nav />
@@ -24,7 +34,7 @@ function Home({ youth }) {
           className="p-2 outline-none border-b border-b-blue-700"
           type="text"
           label="Author Name"
-          placeholder="በማህደር ቁጥር ይፈልጉ"
+          placeholder="አባሉን ይፈልጉ"
           onChange={(e) => {
             setSearch(e.target.value);
           }}
@@ -35,6 +45,8 @@ function Home({ youth }) {
               if (search === "") {
                 return val;
               } else if (val.fullName.includes(search.toLowerCase())) {
+                return val;
+              } else if (val.formNo.includes(search.toLowerCase())) {
                 return val;
               }
             })

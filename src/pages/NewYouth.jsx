@@ -8,7 +8,7 @@ import {
   Input,
   Typography,
 } from "@material-tailwind/react";
-import { loader } from "../components/loader";
+import { toast } from "react-toastify";
 import { useParams, useNavigate } from "react-router-dom";
 
 //Firebase
@@ -25,6 +25,7 @@ import {
 
 //Component & Pages
 import Nav from "../components/Nav";
+import Spinner from "../components/Spinner";
 
 const initialState = {
   formNo: "",
@@ -102,7 +103,9 @@ function NewYouth() {
   //Submit Handler
   const addData = async (e) => {
     e.preventDefault();
-
+    // if (addData) {
+    //   toast.success("መረጃው ተመዝግቧል ✅");
+    // }
     setIsSubmit(true);
 
     //If ID not found add a new data else update existing data
@@ -115,6 +118,11 @@ function NewYouth() {
       } catch (error) {
         console.log(error);
       }
+      //Notification
+      toast.success("መረጃው ተመዝግቧል ✅", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 1000,
+      });
     } else {
       try {
         await updateDoc(doc(db, "youths", id), {
@@ -124,6 +132,11 @@ function NewYouth() {
       } catch (error) {
         console.log(error);
       }
+      //Notification
+      toast.success("መረጃው ተስተካክሏል ✅", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 1000,
+      });
     }
     navigate("/");
   };
@@ -188,7 +201,7 @@ function NewYouth() {
 
       <div className="pt-20 flex justify-center items-center">
         {isSubmit ? (
-          { loader }
+          <Spinner />
         ) : (
           <form onSubmit={addData}>
             <Card className="w-[500px] ">

@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
+//import Toastify
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 //Firebase
 import { db } from "./firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
@@ -24,6 +28,7 @@ function App() {
 
   return (
     <>
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Home youth={youth} setYouth={setYouth} />} />
         <Route path="/newyouth" element={<NewYouth />} />
