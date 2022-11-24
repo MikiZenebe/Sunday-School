@@ -13,7 +13,7 @@ import DetailYouth from "./components/DetailYouth";
 function App() {
   const [youth, setYouth] = useState([]);
 
-  //Fetch Data from DB
+  //Fetch All Data from DB
   useEffect(() => {
     const getYouths = async () => {
       const data = await getDocs(collection(db, "youths"));
@@ -25,9 +25,13 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home youth={youth} />} />
+        <Route path="/" element={<Home youth={youth} setYouth={setYouth} />} />
         <Route path="/newyouth" element={<NewYouth />} />
         <Route path="/update/:id" element={<NewYouth />} />
+        <Route
+          path="/detail/:id"
+          element={<DetailYouth youth={youth} setYouth={setYouth} />}
+        />
       </Routes>
     </>
   );
