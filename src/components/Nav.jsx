@@ -78,7 +78,7 @@ function Nav() {
         <Button
           color="yellow"
           variant="filled"
-          className=" hidden lg:inline-block"
+          className="hidden lg:inline-block"
           onClick={handleLogOut}
         >
           Logout
@@ -117,6 +117,16 @@ function Nav() {
             </MenuItem>
           </MenuList>
         </Menu>
+
+        <Button
+          color="yellow"
+          variant="filled"
+          fullWidth
+          className="mt-2"
+          onClick={handleLogOut}
+        >
+          Logout
+        </Button>
       </MobileNav>
     </Navbar>
   );

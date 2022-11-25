@@ -204,7 +204,7 @@ function NewYouth() {
           <Spinner />
         ) : (
           <form onSubmit={addData}>
-            <Card className="w-[500px] ">
+            <Card className="">
               <CardHeader
                 variant="gradient"
                 color="blue"
@@ -214,7 +214,7 @@ function NewYouth() {
                   {id ? `መረጃውን አስተካክል ` : `የወጣቶች አዲስ አባል`}
                 </Typography>
               </CardHeader>
-              <CardBody className="grid grid-cols-2 gap-4">
+              <CardBody className="grid grid-cols-1 gap-6">
                 <Input
                   type="file"
                   color="green"
