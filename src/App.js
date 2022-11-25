@@ -14,7 +14,9 @@ import Home from "./pages/Home";
 import NewYouth from "./pages/NewYouth";
 import DetailYouth from "./components/DetailYouth";
 import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
+
+import { AuthContextProvider } from "./context/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const [youth, setYouth] = useState([]);
@@ -31,18 +33,48 @@ function App() {
   return (
     <>
       <ToastContainer />
-      <Routes>
-        <Route exact path="/register" element={<SignUp />} />
-        <Route exact path="/login" element={<Login />} />
+      <AuthContextProvider>
+        <Routes>
+          {/* <Route exact path="/register" element={<SignUp />} /> */}
+          <Route exact path="/login" element={<Login />} />
 
-        <Route path="/" element={<Home youth={youth} setYouth={setYouth} />} />
-        <Route path="/newyouth" element={<NewYouth />} />
-        <Route path="/update/:id" element={<NewYouth />} />
-        <Route
-          path="/detail/:id"
-          element={<DetailYouth youth={youth} setYouth={setYouth} />}
-        />
-      </Routes>
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Home youth={youth} setYouth={setYouth} />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/newyouth"
+            element={
+              <ProtectedRoute>
+                <NewYouth />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/update/:id"
+            element={
+              <ProtectedRoute>
+                <NewYouth />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/detail/:id"
+            element={
+              <ProtectedRoute>
+                <DetailYouth youth={youth} setYouth={setYouth} />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </AuthContextProvider>
     </>
   );
 }

@@ -8,12 +8,30 @@ import {
   Input,
   Typography,
 } from "@material-tailwind/react";
+import { useNavigate } from "react-router-dom";
+import { UserAuth } from "../context/AuthContext";
 
 function Login() {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { user, logIn } = UserAuth();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await logIn(email, password);
+    } catch (error) {
+      console.log(error);
+    }
+    navigate("/");
+  };
+
   return (
     <>
       <div className="pt-20 flex justify-center items-center">
-        <form>
+        <form onSubmit={handleSubmit}>
           <Card className="w-[500px] ">
             <CardHeader
               variant="gradient"
@@ -26,20 +44,20 @@ function Login() {
             </CardHeader>
             <CardBody className="flex flex-col  gap-4">
               <Input
-                name="email"
+                onChange={(e) => setEmail(e.target.value)}
                 type="text"
+                autoComplete="email"
                 color="green"
-                label="Username"
+                label="Email"
                 size="md"
-                required
               />
               <Input
-                name="password"
+                onChange={(e) => setPassword(e.target.value)}
+                autoComplete="current-password"
                 type="password"
                 color="green"
                 label="Password"
                 size="md"
-                required
               />
             </CardBody>
             <CardFooter className="pt-0">

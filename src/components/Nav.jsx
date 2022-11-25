@@ -16,10 +16,22 @@ import {
 
 //components
 import { navList } from "./navlist";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { UserAuth } from "../context/AuthContext";
 
 function Nav() {
   const [openNav, setOpenNav] = useState(false);
+  const navigate = useNavigate();
+  const { user, logOut } = UserAuth();
+
+  const handleLogOut = async () => {
+    try {
+      await logOut();
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     window.addEventListener(
@@ -62,6 +74,15 @@ function Nav() {
             </MenuItem>
           </MenuList>
         </Menu>
+
+        <Button
+          color="yellow"
+          variant="filled"
+          className=" hidden lg:inline-block"
+          onClick={handleLogOut}
+        >
+          Logout
+        </Button>
 
         <IconButton
           variant="text"
