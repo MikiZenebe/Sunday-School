@@ -32,7 +32,7 @@ function Login() {
     <>
       <div className="pt-20 flex justify-center items-center">
         <form onSubmit={handleSubmit}>
-          <Card className="w-[500px] ">
+          <Card className=" ">
             <CardHeader
               variant="gradient"
               color="blue"
