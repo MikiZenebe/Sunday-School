@@ -10,6 +10,7 @@ import {
 } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
+import { toast } from "react-toastify";
 
 function Login() {
   const navigate = useNavigate();
@@ -22,8 +23,16 @@ function Login() {
 
     try {
       await logIn(email, password);
+      toast.success(`Welcome 👍`, {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 1000,
+      });
     } catch (error) {
-      console.log(error);
+      //Notification
+      toast.error(`Check email & password ❌`, {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 1000,
+      });
     }
     navigate("/");
   };

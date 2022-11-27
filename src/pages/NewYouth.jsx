@@ -230,7 +230,6 @@ function NewYouth() {
                   size="md"
                   value={formNo}
                   onChange={handleChange}
-                  required
                 />
                 <Input
                   name="fullName"
@@ -240,7 +239,6 @@ function NewYouth() {
                   size="md"
                   value={fullName}
                   onChange={handleChange}
-                  required
                 />
                 <Input
                   name="christianName"
@@ -250,7 +248,6 @@ function NewYouth() {
                   size="md"
                   value={christianName}
                   onChange={handleChange}
-                  required
                 />
                 <Input
                   name="mothersName"
@@ -260,7 +257,6 @@ function NewYouth() {
                   size="md"
                   value={mothersName}
                   onChange={handleChange}
-                  required
                 />
                 <Input
                   name="priesthood"
@@ -270,7 +266,6 @@ function NewYouth() {
                   size="md"
                   value={priesthood}
                   onChange={handleChange}
-                  required
                 />
 
                 <Input
@@ -281,7 +276,6 @@ function NewYouth() {
                   size="md"
                   value={priesthoodYear}
                   onChange={handleChange}
-                  required
                 />
                 <Input
                   name="priesthoodFather"
@@ -291,7 +285,6 @@ function NewYouth() {
                   size="md"
                   value={priesthoodFather}
                   onChange={handleChange}
-                  required
                 />
 
                 <Input
@@ -302,7 +295,6 @@ function NewYouth() {
                   size="md"
                   value={birthYear}
                   onChange={handleChange}
-                  required
                 />
                 <Input
                   name="age"
@@ -312,7 +304,6 @@ function NewYouth() {
                   size="md"
                   value={age}
                   onChange={handleChange}
-                  required
                 />
                 <Input
                   name="sex"
@@ -322,7 +313,6 @@ function NewYouth() {
                   size="md"
                   value={sex}
                   onChange={handleChange}
-                  required
                 />
                 <Input
                   name="city"
@@ -332,7 +322,6 @@ function NewYouth() {
                   size="md"
                   value={city}
                   onChange={handleChange}
-                  required
                 />
                 <Input
                   name="kebele"
@@ -342,7 +331,6 @@ function NewYouth() {
                   size="md"
                   value={kebele}
                   onChange={handleChange}
-                  required
                 />
                 <Input
                   name="specialPlace"
@@ -352,7 +340,6 @@ function NewYouth() {
                   size="md"
                   value={specialPlace}
                   onChange={handleChange}
-                  required
                 />
                 <Input
                   name="houseNo"
@@ -362,7 +349,6 @@ function NewYouth() {
                   size="md"
                   value={houseNo}
                   onChange={handleChange}
-                  required
                 />
 
                 <Input
@@ -373,7 +359,6 @@ function NewYouth() {
                   size="md"
                   value={phoneNo}
                   onChange={handleChange}
-                  required
                 />
 
                 <Input
@@ -384,7 +369,6 @@ function NewYouth() {
                   size="md"
                   value={schoolLevel}
                   onChange={handleChange}
-                  required
                 />
                 <Input
                   name="schoolName"
@@ -394,7 +378,6 @@ function NewYouth() {
                   size="md"
                   value={schoolName}
                   onChange={handleChange}
-                  required
                 />
                 <Input
                   name="college"
@@ -404,7 +387,6 @@ function NewYouth() {
                   size="md"
                   value={college}
                   onChange={handleChange}
-                  required
                 />
                 <Input
                   name="workType"
@@ -414,7 +396,6 @@ function NewYouth() {
                   size="md"
                   value={workType}
                   onChange={handleChange}
-                  required
                 />
                 <Input
                   name="workPlace"
@@ -424,7 +405,6 @@ function NewYouth() {
                   size="md"
                   value={workPlace}
                   onChange={handleChange}
-                  required
                 />
                 <Input
                   name="memberDate"
@@ -434,7 +414,6 @@ function NewYouth() {
                   size="md"
                   value={memberDate}
                   onChange={handleChange}
-                  required
                 />
                 <Input
                   name="GodFathMom"
@@ -444,7 +423,6 @@ function NewYouth() {
                   size="md"
                   value={GodFathMom}
                   onChange={handleChange}
-                  required
                 />
                 <Input
                   name="nishaAbat"
@@ -454,7 +432,6 @@ function NewYouth() {
                   size="md"
                   value={nishaAbat}
                   onChange={handleChange}
-                  required
                 />
                 <Input
                   name="nishaAbatAddress"
@@ -464,7 +441,6 @@ function NewYouth() {
                   size="md"
                   value={nishaAbatAddress}
                   onChange={handleChange}
-                  required
                 />
                 <Input
                   name="emerFam"
@@ -474,7 +450,6 @@ function NewYouth() {
                   size="md"
                   value={emerFam}
                   onChange={handleChange}
-                  required
                 />
                 <Input
                   name="emerFamPhone"
@@ -484,7 +459,6 @@ function NewYouth() {
                   size="md"
                   value={emerFamPhone}
                   onChange={handleChange}
-                  required
                 />
               </CardBody>
               <CardFooter className="pt-0">

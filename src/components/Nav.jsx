@@ -18,6 +18,7 @@ import {
 import { navList } from "./navlist";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
+import Logo from "../assets/logo.png";
 
 function Nav() {
   const [openNav, setOpenNav] = useState(false);

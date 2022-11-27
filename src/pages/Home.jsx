@@ -62,16 +62,20 @@ function Home({ youth }) {
                       <li class="flex flex-row">
                         <div class="select-none cursor-pointer flex flex-1 items-center p-4">
                           <div class="flex flex-col w-10 h-10 justify-center items-center mr-4">
-                            <img
-                              alt="profil"
-                              src={item.img}
-                              class="mx-auto object-cover rounded-full h-10 w-10 "
-                            />
+                            <Link to={`/detail/${item.id}`}>
+                              <img
+                                alt="profil"
+                                src={item.img}
+                                class="mx-auto object-cover rounded-full h-10 w-10 "
+                              />
+                            </Link>
                           </div>
                           <div class="flex-1 pl-1 mr-16">
-                            <div class="font-medium dark:text-white">
-                              {item.fullName}
-                            </div>
+                            <Link to={`/detail/${item.id}`}>
+                              <div class="font-medium dark:text-white">
+                                {item.fullName}
+                              </div>
+                            </Link>
                             <div class="text-gray-600 dark:text-gray-200 text-sm">
                               {item.formNo}
                             </div>
