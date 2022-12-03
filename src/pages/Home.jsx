@@ -23,6 +23,7 @@ function Home({ youth }) {
         autoClose: 1000,
       });
     }
+    window.location.reload();
   };
 
   return (

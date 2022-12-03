@@ -102,10 +102,6 @@ function NewYouth() {
 
   //Submit Handler
   const addData = async (e) => {
-    e.preventDefault();
-    // if (addData) {
-    //   toast.success("መረጃው ተመዝግቧል ✅");
-    // }
     setIsSubmit(true);
 
     //If ID not found add a new data else update existing data
@@ -138,7 +134,9 @@ function NewYouth() {
         autoClose: 1000,
       });
     }
+
     navigate("/");
+    window.location.reload();
   };
 
   //For Updating
